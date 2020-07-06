@@ -42,10 +42,17 @@ export default () => {
 		newTodo.value = ''
 		return store.dispatch('todo/addTodo', todo)
 	}
+
+	let updateTodo = (todo) => {
+		todo.updated = new Date()
+		return store.dispatch('todo/updateTodo', todo)
+	}
+
 	return {
 		newTodo,
 		todos,
 		addTodo,
+		updateTodo,
 		error,
 		resetError,
 	}

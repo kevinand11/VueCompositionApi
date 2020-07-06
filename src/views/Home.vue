@@ -11,10 +11,13 @@
 		<h4>TODOS</h4>
 		<ul class='todoList'>
 			<li v-for='todo in todos' :key='todo.task' class='todoItem'>
-				<input type="checkbox" class='todoDone' v-model='todo.done'>
+				<input type="checkbox" class='todoDone' v-model='todo.done' @change='updateTodo(todo)'>
 				<div class="todoDetails">
 					<p class='todoTask' :class="{'strike-through': todo.done}">{{ todo.task }}</p>
-					<span class='todoDate'>Created: {{ todo.created.toDateString() }}</span>
+					<span class='todoDate'>
+						<span>Created: {{ todo.created.toDateString() }}</span>
+						<span v-if='todo.updated' style='margin-left:8px;'>Updated: {{ todo.updated.toDateString() }}</span>
+					</span>
 				</div>
 			</li>
 		</ul>
@@ -31,6 +34,7 @@ export default {
 			error,
 			todos,
 			addTodo,
+			updateTodo,
 			hasError,
 			resetError
 		} = useTodos()
@@ -40,6 +44,7 @@ export default {
 			error,
 			todos,
 			addTodo,
+			updateTodo,
 			hasError,
 			resetError
 		}
@@ -88,6 +93,7 @@ export default {
 	.todoItem .todoDetails .todoDate{
 		font-size: 0.75rem;
 		font-weight: lighter;
+		text-align: left;
 	}
 	.addTodoForm{
 		display: flex;
