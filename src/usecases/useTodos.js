@@ -1,5 +1,5 @@
-import { computed, reactive, ref } from '@vue/composition-api'
-import { useStore } from '@/usecases/useStore'
+import { reactive, ref } from 'vue'
+import { useStore } from 'vuex'
 import useError from '@/usecases/useError'
 
 export default () => {

@@ -8,15 +8,6 @@
   </div>
 </template>
 
-<script>
-import { provideStore } from '@/usecases/useStore'
-export default {
-  setup(){
-    provideStore()
-  }
-}
-</script>
-
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
